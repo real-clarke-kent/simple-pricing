@@ -1,0 +1,27 @@
+---
+type Props = {
+  class?: string;
+};
+---
+
+<header
+  class:list={[
+    Astro.props.class
+      ? Astro.props.class
+      : "col-span-full flex flex-col items-center gap-y-5 desktop:mx-40",
+  ]}
+>
+  <div class="flex w-full flex-col items-center gap-y-3 desktop:px-10">
+    <p class="font-semibold text-brand">
+      <slot name="tagline" />
+      <h1
+        class="text-balance text-center text-3xl font-semibold text-primary tablet:text-5xl"
+      >
+        <slot name="headline" />
+      </h1>
+    </p>
+  </div>
+  <p class="text-balance text-center text-lg tablet:text-xl">
+    <slot name="description" />
+  </p>
+</header>
